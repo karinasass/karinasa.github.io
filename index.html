@@ -36,9 +36,10 @@
             margin: 0 0.5rem;
             border-radius: 4px;
             transition: background-color 0.3s;
+            cursor: pointer;
         }
         
-        nav a:hover {
+        nav a:hover, nav a.active {
             background-color: #444d56;
         }
         
@@ -79,6 +80,16 @@
             margin-bottom: 1rem;
         }
         
+        .content-section {
+            display: none;
+            padding: 2rem 0;
+            border-top: 1px solid #e1e4e8;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
         footer {
             background-color: #24292e;
             color: white;
@@ -102,23 +113,44 @@
 <body>
     <header>
         <nav>
-            <a href="curriculo.html" target="_blank">Currículo</a>
-            <a href="projetos.html" target="_blank">Projetos</a>
-            <a href="artigos.html" target="_blank">Artigos</a>
+            <a class="nav-link active" data-target="welcome">Início</a>
+            <a class="nav-link" data-target="curriculo">Currículo</a>
+            <a class="nav-link" data-target="projetos">Projetos</a>
+            <a class="nav-link" data-target="artigos">Artigos</a>
         </nav>
     </header>
     
     <div class="container">
-        <section class="welcome-section">
-            <div class="welcome-text">
-                <h1>Bem-vindo ao meu portfólio de Análise de Dados!</h1>
-                <p>Olá! Meu nome é Karina Sass e sou um profissional apaixonado por transformar dados em insights valiosos. Com formação em [Sua Formação] e [X anos] de experiência no mercado, especializo-me em [suas especialidades, ex: análise preditiva, visualização de dados, machine learning].</p>
-                <p>Neste espaço, você encontrará informações sobre minha trajetória profissional, projetos que desenvolvi e artigos que escrevi sobre temas relevantes na área de dados. Fique à vontade para explorar e entrar em contato caso queira conversar!</p>
+        <section id="welcome" class="content-section active">
+            <div class="welcome-section">
+                <div class="welcome-text">
+                    <h1>Bem-vindo ao meu portfólio de Análise de Dados!</h1>
+                    <p>Olá! Meu nome é Karina Sass e sou um profissional apaixonado por transformar dados em insights valiosos. Com formação em [Sua Formação] e [X anos] de experiência no mercado, especializo-me em [suas especialidades, ex: análise preditiva, visualização de dados, machine learning].</p>
+                    <p>Neste espaço, você encontrará informações sobre minha trajetória profissional, projetos que desenvolvi e artigos que escrevi sobre temas relevantes na área de dados. Fique à vontade para explorar!</p>
+                </div>
+                
+                <div class="profile-image">
+                    <img src="sua-foto.jpg" alt="Karina Sass - Analista de Dados">
+                </div>
             </div>
-            
-            <div class="profile-image">
-                <img src="sua-foto.jpg" alt="Karina Sass - Analista de Dados">
-            </div>
+        </section>
+        
+        <section id="curriculo" class="content-section">
+            <h1>Meu Currículo</h1>
+            <!-- Adicione o conteúdo do currículo aqui -->
+            <p>Conteúdo do currículo será exibido aqui...</p>
+        </section>
+        
+        <section id="projetos" class="content-section">
+            <h1>Meus Projetos</h1>
+            <!-- Adicione o conteúdo dos projetos aqui -->
+            <p>Conteúdo dos projetos será exibido aqui...</p>
+        </section>
+        
+        <section id="artigos" class="content-section">
+            <h1>Meus Artigos</h1>
+            <!-- Adicione o conteúdo dos artigos aqui -->
+            <p>Conteúdo dos artigos será exibido aqui...</p>
         </section>
     </div>
     
@@ -127,7 +159,26 @@
     </footer>
     
     <script>
+        // Atualiza o ano no footer
         document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Controle das seções
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove a classe active de todos os links e seções
+                document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+                document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+                
+                // Adiciona active ao link clicado
+                this.classList.add('active');
+                
+                // Mostra a seção correspondente
+                const target = this.getAttribute('data-target');
+                document.getElementById(target).classList.add('active');
+            });
+        });
     </script>
 </body>
 </html>
