@@ -1,0 +1,14 @@
+[
+    {
+        "data": "15/10/2023",
+        "titulo": "Análise de Dados com Python",
+        "resumo": "Como utilizar Pandas para análise exploratória...",
+        "link": "#"
+    },
+    {
+        "data": "10/10/2023",
+        "titulo": "Visualização de Dados Power BI",
+        "resumo": "Criando dashboards interativos...",
+        "link": "#"
+    }
+]
