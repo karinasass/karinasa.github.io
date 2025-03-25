@@ -3,48 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Site Profissional</title>
-    <link href="<link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/lux/bootstrap.min.css" rel="stylesheet">
-">
+    <title>Meu Portfólio de Análise de Dados</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        .hero { background: #007bff; color: white; padding: 60px 20px; text-align: center; }
-        .section { padding: 60px 20px; text-align: center; }
-        .profile-img { width: 150px; border-radius: 50%; margin-top: 20px; }
-        .footer { background: #333; color: white; text-align: center; padding: 20px; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #24292e;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            margin: 0 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #444d56;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .welcome-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        
+        .welcome-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 2rem;
+        }
+        
+        .profile-image {
+            flex: 0 0 300px;
+            text-align: center;
+        }
+        
+        .profile-image img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 50%;
+            border: 5px solid #24292e;
+        }
+        
+        h1 {
+            color: #24292e;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            color: #444d56;
+            border-bottom: 2px solid #e1e4e8;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        footer {
+            background-color: #24292e;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .welcome-section {
+                flex-direction: column;
+            }
+            
+            .welcome-text {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Análise de Dados</a>
-            <div class="d-flex">
-                <a class="nav-link text-white mx-3" href="#curriculo">Currículo</a>
-                <a class="nav-link text-white mx-3" href="#projetos">Projetos</a>
-                <a class="nav-link text-white mx-3" href="#artigos">Artigos</a>
-            </div>
-        </div>
-    </nav>
-    
-    <header class="hero">
-        <h1>Bem-vindo ao Meu Site Profissional</h1>
-        <p>Explorando o mundo da análise de dados com insights e inovação.</p>
+    <header>
+        <nav>
+            <a href="#curriculo">Currículo</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#artigos">Artigos</a>
+        </nav>
     </header>
     
-    <section class="section">
-        <div class="container">
-            <img src="sua_foto.jpg" alt="Minha Foto" class="profile-img">
-            <h2>Sobre Mim</h2>
-            <p>Sou um profissional apaixonado por análise de dados, com experiência em modelagem estatística, machine learning e visualização de dados.</p>
-        </div>
-    </section>
+    <div class="container">
+        <section class="welcome-section">
+            <div class="welcome-text">
+                <h1>Bem-vindo ao meu portfólio de Análise de Dados!</h1>
+                <p>Olá! Meu nome é [Seu Nome] e sou um profissional apaixonado por transformar dados em insights valiosos. Com formação em [Sua Formação] e [X anos] de experiência no mercado, especializo-me em [suas especialidades, ex: análise preditiva, visualização de dados, machine learning].</p>
+                <p>Neste espaço, você encontrará informações sobre minha trajetória profissional, projetos que desenvolvi e artigos que escrevi sobre temas relevantes na área de dados. Fique à vontade para explorar e entrar em contato caso queira conversar!</p>
+            </div>
+            
+            <div class="profile-image">
+                <!-- Substitua pelo caminho da sua imagem -->
+                <img src="sua-foto.jpg" alt="[Seu Nome] - Analista de Dados">
+            </div>
+        </section>
+        
+        <section id="curriculo">
+            <h2>Currículo</h2>
+            <p>Aqui você pode adicionar seu currículo completo ou um resumo das suas qualificações.</p>
+            <!-- Adicione mais conteúdo sobre seu currículo aqui -->
+        </section>
+        
+        <section id="projetos">
+            <h2>Projetos</h2>
+            <p>Listagem dos seus principais projetos de análise de dados.</p>
+            <!-- Adicione seus projetos aqui -->
+        </section>
+        
+        <section id="artigos">
+            <h2>Artigos</h2>
+            <p>Artigos e publicações sobre análise de dados.</p>
+            <!-- Adicione seus artigos aqui -->
+        </section>
+    </div>
     
-    <footer class="footer">
-        <p>&copy; 2024 Meu Nome - Todos os direitos reservados</p>
+    <footer>
+        <p>&copy; <span id="year"></span> [Seu Nome] - Analista de Dados. Todos os direitos reservados.</p>
     </footer>
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Atualiza o ano no footer automaticamente
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
-
-
