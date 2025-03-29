@@ -3,159 +3,501 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portfólio </title>
+    <title>Meu Portfólio</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,700,700i,900" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        :root {
+            --primary-color: #009FDA;
+            --secondary-color: #24292e;
+            --text-color: #333;
+            --light-text: #fff;
+            --background-light: #f5f5f5;
+        }
+        
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            color: #333;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
             line-height: 1.6;
+            background-color: var(--background-light);
         }
         
-        header {
-            background-color: #24292e;
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: center;
+        .main {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
         
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1.5rem;
-            margin: 0 0.5rem;
-            border-radius: 4px;
-            transition: background-color 0.3s;
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #e1e4e8;
+        }
+        
+        .client__logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
             cursor: pointer;
         }
         
-        nav a:hover, nav a.active {
-            background-color: #444d56;
+        .header__menu {
+            display: flex;
+            list-style: none;
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
+        .header__menu-item {
+            margin-left: 30px;
         }
         
-        .welcome-section {
+        .header__menu-item a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .header__menu-item a:hover {
+            color: var(--primary-color);
+        }
+        
+        .main__content-footer {
+            margin-top: 40px;
+        }
+        
+        .home__content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        
+        .home__texto {
+            flex: 1;
+            padding-right: 40px;
+        }
+        
+        .home__texto--title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .home__texto--subtitle {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .home__texto--description {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .home__button {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .home__button:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .home__ilustracao img {
+            max-width: 400px;
+            height: auto;
+        }
+        
+        .home__content-center {
+            justify-content: center;
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        .home__subcontent-title {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .home__subcontent-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .home__cards {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 40px;
+        }
+        
+        .home__card {
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .home__card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .home__cards_sub {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 60px;
+        }
+        
+        .home__card_sub {
+            flex: 0 0 30%;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .home__card_sub--title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .home__card--description {
+            display: block;
+            line-height: 1.8;
+        }
+        
+        .home__about {
+            display: flex;
+            margin-bottom: 60px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .home__about--text {
+            flex: 1;
+            padding-right: 40px;
+        }
+        
+        .home__about--title {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .home__about--description {
+            display: block;
+            line-height: 1.8;
+        }
+        
+        .home__about--logos {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-bottom: 3rem;
         }
         
-        .welcome-text {
-            flex: 1;
-            min-width: 300px;
-            padding-right: 2rem;
+        .home__about--logos-container img {
+            margin-left: 20px;
+            max-height: 60px;
         }
         
-        .profile-image {
-            flex: 0 0 300px;
+        .footer {
             text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid #e1e4e8;
+            margin-top: 40px;
         }
         
-        .profile-image img {
-            width: 100%;
-            max-width: 250px;
-            border-radius: 50%;
-            border: 5px solid #24292e;
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
         }
         
-        h1 {
-            color: #24292e;
-            margin-bottom: 1rem;
-        }
-        
+        /* Seções de conteúdo */
         .content-section {
             display: none;
-            padding: 2rem 0;
-            border-top: 1px solid #e1e4e8;
+            padding: 40px 0;
         }
         
         .content-section.active {
             display: block;
         }
         
-        footer {
-            background-color: #24292e;
-            color: white;
-            text-align: center;
-            padding: 1.5rem 0;
-            margin-top: 2rem;
-        }
-        
+        /* Responsividade */
         @media (max-width: 768px) {
-            .welcome-section {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header__menu {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .header__menu-item {
+                margin: 10px 15px;
+            }
+            
+            .home__content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .home__texto {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+            
+            .home__cards, .home__cards_sub {
                 flex-direction: column;
             }
             
-            .welcome-text {
+            .home__card_sub {
+                margin-bottom: 20px;
+            }
+            
+            .home__about {
+                flex-direction: column;
+            }
+            
+            .home__about--text {
                 padding-right: 0;
-                margin-bottom: 2rem;
+                margin-bottom: 30px;
+            }
+            
+            .home__about--logos-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .home__about--logos-container img {
+                margin: 10px;
             }
         }
     </style>
 </head>
-<body>
-    <header>
-        <nav>
-            <a class="nav-link active" data-target="welcome">Início</a>
-            <a class="nav-link" data-target="curriculo">Currículo</a>
-            <a class="nav-link" data-target="projetos">Projetos</a>
-            <a class="nav-link" data-target="artigos">Artigos</a>
-        </nav>
-    </header>
-    
-    <div class="container">
-        <section id="welcome" class="content-section active">
-            <div class="welcome-section">
-                <div class="welcome-text">
-                    <h1>Bem-vindo ao meu site profissional!</h1>
-                    <p>Olá! Meu nome é Karina Sass e sou um profissional bla bla bla. Com formação em [Sua Formação] e [X anos] de experiência no mercado, especializo-me em [suas especialidades, ex: análise preditiva, visualização de dados, machine learning].</p>
-                    <p>Neste espaço, você encontrará informações sobre minha trajetória profissional, projetos que desenvolvi e artigos que escrevi sobre temas relevantes na área de dados. Fique à vontade para explorar!</p>
+<body class="main-body">
+    <div class="main">
+        <header class="header">
+            <h2 class="client__logo">Meu Portfólio Profissional</h2>
+            <nav>
+                <ul class="header__menu">
+                    <li class="header__menu-item"><a class="nav-link active" data-target="welcome">Início</a></li>
+                    <li class="header__menu-item"><a class="nav-link" data-target="curriculo">Currículo</a></li>
+                    <li class="header__menu-item"><a class="nav-link" data-target="projetos">Projetos</a></li>
+                    <li class="header__menu-item"><a class="nav-link" data-target="artigos">Artigos</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <div class="main__content-footer">
+            <!-- Seção Início -->
+            <section id="welcome" class="content-section active">
+                <div class="home__content">
+                    <div class="home__texto">
+                        <p class="home__texto--title">Karina Sass</p>
+                        <p class="home__texto--subtitle">Analista de Dados</p>
+                        <span class="home__texto--description">
+                            Olá! Meu nome é Karina Sass e sou um profissional bla bla bla. Com formação em [Sua Formação] e [X anos] de experiência no mercado, especializo-me em [suas especialidades, ex: análise preditiva, visualização de dados, machine learning].
+                        </span>
+                        <div>
+                            <button class="home__button" data-target="curriculo">Ver Currículo</button>
+                        </div>
+                    </div>
+                    <div class="home__ilustracao">
+                        <img src="sua-foto.jpg" alt="Karina Sass - Analista de Dados" style="border-radius: 50%; border: 5px solid var(--primary-color); max-width: 300px;">
+                    </div>
                 </div>
                 
-                <div class="profile-image">
-                    <img src="sua-foto.jpg" alt="Karina Sass - Analista de Dados">
+                <div class="home__content home__content-center">
+                    <h2 class="home__subcontent-title">Minhas Especialidades</h2>
+                </div>
+                
+                <div class="home__cards_sub">
+                    <div class="home__card_sub">
+                        <p class="home__card_sub--title">Análise de Dados</p>
+                        <span class="home__card--description">Descrição sobre suas habilidades em análise de dados, ferramentas que utiliza e tipos de análises que realiza.</span>
+                    </div>
+                    <div class="home__card_sub">
+                        <p class="home__card_sub--title">Visualização</p>
+                        <span class="home__card--description">Descrição sobre suas habilidades em visualização de dados, ferramentas que utiliza e exemplos de dashboards criados.</span>
+                    </div>
+                    <div class="home__card_sub">
+                        <p class="home__card_sub--title">Machine Learning</p>
+                        <span class="home__card--description">Descrição sobre seus conhecimentos em machine learning, algoritmos que domina e projetos relevantes.</span>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Seção Currículo -->
+            <section id="curriculo" class="content-section">
+                <div class="home__content-center">
+                    <h2 class="home__subcontent-title">Meu Currículo</h2>
+                </div>
+                
+                <div class="home__cards_sub">
+                    <div class="home__card_sub">
+                        <p class="home__card_sub--title">Experiência Profissional</p>
+                        <span class="home__card--description">
+                            <ul style="list-style-type: none; margin-top: 15px;">
+                                <li style="margin-bottom: 15px;">
+                                    <strong>Empresa X</strong><br>
+                                    Cargo: Analista de Dados Sênior<br>
+                                    Período: 2020 - Presente<br>
+                                    Descrição: Responsável por...
+                                </li>
+                                <li style="margin-bottom: 15px;">
+                                    <strong>Empresa Y</strong><br>
+                                    Cargo: Cientista de Dados<br>
+                                    Período: 2018 - 2020<br>
+                                    Descrição: Responsável por...
+                                </li>
+                            </ul>
+                        </span>
+                    </div>
+                    
+                    <div class="home__card_sub">
+                        <p class="home__card_sub--title">Formação Acadêmica</p>
+                        <span class="home__card--description">
+                            <ul style="list-style-type: none; margin-top: 15px;">
+                                <li style="margin-bottom: 15px;">
+                                    <strong>Universidade ABC</strong><br>
+                                    Mestrado em Ciência de Dados<br>
+                                    Período: 2016 - 2018
+                                </li>
+                                <li style="margin-bottom: 15px;">
+                                    <strong>Universidade XYZ</strong><br>
+                                    Bacharelado em Estatística<br>
+                                    Período: 2012 - 2016
+                                </li>
+                            </ul>
+                        </span>
+                    </div>
+                    
+                    <div class="home__card_sub">
+                        <p class="home__card_sub--title">Habilidades Técnicas</p>
+                        <span class="home__card--description">
+                            <ul style="list-style-type: none; margin-top: 15px;">
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Linguagens:</strong> Python, R, SQL
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Ferramentas:</strong> Tableau, Power BI, Pandas, Scikit-learn
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Bancos de Dados:</strong> PostgreSQL, MySQL, MongoDB
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Outros:</strong> Git, Docker, AWS
+                                </li>
+                            </ul>
+                        </span>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Seção Projetos -->
+            <section id="projetos" class="content-section">
+                <div class="home__content-center">
+                    <h2 class="home__subcontent-title">Meus Projetos</h2>
+                </div>
+                
+                <div class="home__cards_sub">
+                    <div class="home__card_sub">
+                        <p class="home__card_sub--title">Análise de Mercado Financeiro</p>
+                        <span class="home__card--description">
+                            Projeto completo de análise de tendências no mercado financeiro utilizando Python e machine learning para prever movimentos de ações.
+                        </span>
+                        <div style="margin-top: 15px;">
+                            <button class="home__button" style="padding: 8px 15px; font-size: 0.9rem;">Ver Detalhes</button>
+                        </div>
+                    </div>
+                    
+                    <div class="home__card_sub">
+                        <p class="home__card_sub--title">Dashboard de Vendas</p>
+                        <span class="home__card--description">
+                            Dashboard interativo desenvolvido em Tableau para análise de desempenho de vendas com drill-down por região, produto e período.
+                        </span>
+                        <div style="margin-top: 15px;">
+                            <button class="home__button" style="padding: 8px 15px; font-size: 0.9rem;">Ver Detalhes</button>
+                        </div>
+                    </div>
+                    
+                    <div class="home__card_sub">
+                        <p class="home__card_sub--title">Sistema de Recomendação</p>
+                        <span class="home__card--description">
+                            Sistema de recomendação baseado em conteúdo para plataforma de e-commerce, implementado com Python e Scikit-learn.
+                        </span>
+                        <div style="margin-top: 15px;">
+                            <button class="home__button" style="padding: 8px 15px; font-size: 0.9rem;">Ver Detalhes</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Seção Artigos -->
+            <section id="artigos" class="content-section">
+                <div class="home__content-center">
+                    <h2 class="home__subcontent-title">Artigos Recentes</h2>
+                </div>
+                
+                <div class="home__cards_sub" id="artigos-container">
+                    <!-- Artigos serão carregados aqui via JavaScript -->
+                </div>
+            </section>
+            
+            <div class="home__about">
+                <div class="home__about--text">
+                    <p class="home__about--title">Entre em Contato</p>
+                    <span class="home__about--description">
+                        Estou disponível para oportunidades de trabalho, colaborações em projetos ou simplesmente para conversar sobre ciência de dados. Sinta-se à vontade para me contatar por e-mail ou através das minhas redes sociais.
+                    </span>
+                    <div style="margin-top: 20px;">
+                        <button class="home__button">Enviar Mensagem</button>
+                    </div>
+                </div>
+                <div class="home__about--logos">
+                    <div class="home__about--logos-container" style="display: block !important;">
+                        <!-- Ícones de redes sociais podem ser adicionados aqui -->
+                    </div>
                 </div>
             </div>
-        </section>
-        
-        <section id="curriculo" class="content-section">
-            <h1>Meu Currículo</h1>
-            <!-- Adicione o conteúdo do currículo aqui -->
-            <p>Conteúdo do currículo será exibido aqui...</p>
-        </section>
-        
-        <section id="projetos" class="content-section">
-            <h1>Meus Projetos</h1>
-              <p>Conteúdo dos projetos será exibido aqui...</p>
-        </section>
-        
-        <section id="artigos" class="content-section">
-               <h1>Artigos Recentes</h1>
-    <div class="artigos-container" id="artigos-container">
-        <!-- Os cards serão inseridos aqui via JavaScript -->
-        </section>
+            
+            <div class="footer">
+                &copy; <span id="year"></span> Karina Sass - Analista de Dados. Todos os direitos reservados.
+            </div>
+        </div>
     </div>
-    
-    <footer>
-        <p>&copy; <span id="year"></span> Karina Sass - Analista de Dados. Todos os direitos reservados.</p>
-    </footer>
     
     <script>
         // Atualiza o ano no footer
@@ -176,35 +518,74 @@
                 // Mostra a seção correspondente
                 const target = this.getAttribute('data-target');
                 document.getElementById(target).classList.add('active');
+                
+                // Rolagem suave para o topo da seção
+                window.scrollTo({
+                    top: document.getElementById(target).offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Botões que funcionam como links de navegação
+        document.querySelectorAll('.home__button').forEach(button => {
+            const target = button.getAttribute('data-target');
+            if (target) {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+                    document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+                    
+                    document.querySelector(`.nav-link[data-target="${target}"]`).classList.add('active');
+                    document.getElementById(target).classList.add('active');
+                    
+                    window.scrollTo({
+                        top: document.getElementById(target).offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
+    
+    <script>
+        // Carregamento dos artigos (simulado)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simulação de carregamento de artigos
+            const artigos = [
+                {
+                    titulo: "Tendências em Análise de Dados para 2023",
+                    resumo: "Uma análise das principais tendências e tecnologias que estarão em evidência no mercado de dados no próximo ano.",
+                    data: "15/10/2022"
+                },
+                {
+                    titulo: "Introdução ao Machine Learning com Python",
+                    resumo: "Guia prático para iniciantes que desejam começar com machine learning utilizando a linguagem Python.",
+                    data: "22/08/2022"
+                },
+                {
+                    titulo: "Visualização de Dados: Do Básico ao Avançado",
+                    resumo: "Técnicas e boas práticas para criar visualizações de dados eficientes e informativas.",
+                    data: "05/07/2022"
+                }
+            ];
+            
+            const container = document.getElementById('artigos-container');
+            
+            artigos.forEach(artigo => {
+                container.innerHTML += `
+                    <div class="home__card_sub">
+                        <div style="color: #777; margin-bottom: 10px;">${artigo.data}</div>
+                        <p class="home__card_sub--title">${artigo.titulo}</p>
+                        <span class="home__card--description">${artigo.resumo}</span>
+                        <div style="margin-top: 15px;">
+                            <button class="home__button" style="padding: 8px 15px; font-size: 0.9rem;">Ler Artigo</button>
+                        </div>
+                    </div>
+                `;
             });
         });
     </script>
 </body>
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
-    fetch('artigos.json')
-        .then(response => response.json())
-        .then(artigos => {
-            const container = document.getElementById('artigos-container');
-            
-            artigos.sort((a, b) => {
-                const [diaA, mesA, anoA] = a.data.split('/');
-                const [diaB, mesB, anoB] = b.data.split('/');
-                return new Date(anoB, mesB-1, diaB) - new Date(anoA, mesA-1, diaA);
-            });
-            
-            artigos.forEach(artigo => {
-                container.innerHTML += `
-                    <div class="artigo-card">
-                        <div class="artigo-data">${artigo.data}</div>
-                        <h3 class="artigo-titulo">${artigo.titulo}</h3>
-                        <p class="artigo-resumo">${artigo.resumo}</p>
-                        <a href="${artigo.link}" class="artigo-link">Ler mais</a>
-                    </div>
-                `;
-            });
-        })
-        .catch(error => console.error('Erro ao carregar artigos:', error));
-});
-</script>
 </html>
+      
+ 
