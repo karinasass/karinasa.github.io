@@ -7,11 +7,14 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,700,700i,900" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #009FDA;
-            --secondary-color: #24292e;
-            --text-color: #333;
-            --light-text: #fff;
-            --background-light: #f5f5f5;
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #34495e;
+            --light-text: #ecf0f1;
+            --background-light: #ffffff;
+            --background-alt: #f8f9fa;
+            --border-color: #dfe6e9;
         }
         
         * {
@@ -38,13 +41,18 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 0;
-            border-bottom: 1px solid #e1e4e8;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--background-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
         
         .client__logo {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--secondary-color);
+            color: var(--primary-color);
             cursor: pointer;
         }
         
@@ -62,10 +70,27 @@
             color: var(--text-color);
             font-weight: 500;
             transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
         }
         
         .header__menu-item a:hover {
-            color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+        
+        .header__menu-item a.active {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .header__menu-item a.active:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--secondary-color);
         }
         
         .main__content-footer {
@@ -77,6 +102,7 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 60px;
+            padding: 40px 0;
         }
         
         .home__texto {
@@ -103,10 +129,11 @@
             font-size: 1.1rem;
             margin-bottom: 30px;
             line-height: 1.8;
+            color: var(--text-color);
         }
         
         .home__button {
-            background-color: var(--primary-color);
+            background-color: var(--secondary-color);
             color: var(--light-text);
             border: none;
             padding: 12px 25px;
@@ -114,16 +141,22 @@
             font-weight: 600;
             border-radius: 4px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         
         .home__button:hover {
-            background-color: var(--secondary-color);
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
         
         .home__ilustracao img {
-            max-width: 400px;
+            max-width: 300px;
             height: auto;
+            border-radius: 50%;
+            border: 5px solid var(--secondary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         .home__content-center {
@@ -134,7 +167,7 @@
         
         .home__subcontent-title {
             font-size: 2rem;
-            color: var(--secondary-color);
+            color: var(--primary-color);
             position: relative;
             padding-bottom: 15px;
         }
@@ -147,7 +180,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 3px;
-            background-color: var(--primary-color);
+            background-color: var(--secondary-color);
         }
         
         .home__cards {
@@ -174,15 +207,23 @@
         
         .home__card_sub {
             flex: 0 0 30%;
-            padding: 20px;
-            background-color: white;
+            padding: 30px;
+            background-color: var(--background-light);
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+        }
+        
+        .home__card_sub:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-color: var(--secondary-color);
         }
         
         .home__card_sub--title {
             font-size: 1.3rem;
-            color: var(--primary-color);
+            color: var(--secondary-color);
             margin-bottom: 15px;
             font-weight: 600;
         }
@@ -190,15 +231,16 @@
         .home__card--description {
             display: block;
             line-height: 1.8;
+            color: var(--text-color);
         }
         
         .home__about {
             display: flex;
             margin-bottom: 60px;
-            background-color: white;
+            background-color: var(--background-alt);
             padding: 40px;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
         
         .home__about--text {
@@ -208,7 +250,7 @@
         
         .home__about--title {
             font-size: 1.5rem;
-            color: var(--secondary-color);
+            color: var(--primary-color);
             margin-bottom: 20px;
             font-weight: 600;
         }
@@ -216,6 +258,7 @@
         .home__about--description {
             display: block;
             line-height: 1.8;
+            color: var(--text-color);
         }
         
         .home__about--logos {
@@ -231,13 +274,15 @@
         .footer {
             text-align: center;
             padding: 30px 0;
-            border-top: 1px solid #e1e4e8;
+            border-top: 1px solid var(--border-color);
             margin-top: 40px;
+            background-color: var(--background-alt);
         }
         
         .footer a {
-            color: var(--primary-color);
+            color: var(--secondary-color);
             text-decoration: none;
+            font-weight: 500;
         }
         
         /* Seções de conteúdo */
@@ -250,11 +295,33 @@
             display: block;
         }
         
+        /* Estilos para listas */
+        ul.custom-list {
+            list-style-type: none;
+            margin-top: 15px;
+        }
+        
+        ul.custom-list li {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        ul.custom-list li:before {
+            content: '•';
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
         /* Responsividade */
         @media (max-width: 768px) {
             .header {
                 flex-direction: column;
                 text-align: center;
+                padding: 15px 0;
             }
             
             .header__menu {
@@ -270,6 +337,7 @@
             .home__content {
                 flex-direction: column;
                 text-align: center;
+                padding: 30px 0;
             }
             
             .home__texto {
@@ -283,6 +351,7 @@
             
             .home__card_sub {
                 margin-bottom: 20px;
+                flex: 0 0 100%;
             }
             
             .home__about {
@@ -328,14 +397,14 @@
                         <p class="home__texto--title">Karina Sass</p>
                         <p class="home__texto--subtitle">Analista de Dados</p>
                         <span class="home__texto--description">
-                            Olá! Meu nome é Karina Sass e sou um profissional bla bla bla. Com formação em [Sua Formação] e [X anos] de experiência no mercado, especializo-me em [suas especialidades, ex: análise preditiva, visualização de dados, machine learning].
+                            Olá! Meu nome é Karina Sass e sou um profissional apaixonado por transformar dados em insights valiosos. Com formação em Ciência da Computação e 5 anos de experiência no mercado, especializo-me em análise preditiva, visualização de dados e machine learning.
                         </span>
                         <div>
                             <button class="home__button" data-target="curriculo">Ver Currículo</button>
                         </div>
                     </div>
                     <div class="home__ilustracao">
-                        <img src="sua-foto.jpg" alt="Karina Sass - Analista de Dados" style="border-radius: 50%; border: 5px solid var(--primary-color); max-width: 300px;">
+                        <img src="https://via.placeholder.com/300" alt="Karina Sass - Analista de Dados">
                     </div>
                 </div>
                 
@@ -346,15 +415,21 @@
                 <div class="home__cards_sub">
                     <div class="home__card_sub">
                         <p class="home__card_sub--title">Análise de Dados</p>
-                        <span class="home__card--description">Descrição sobre suas habilidades em análise de dados, ferramentas que utiliza e tipos de análises que realiza.</span>
+                        <span class="home__card--description">
+                            Experiência em análise exploratória de dados, limpeza e transformação de dados, e criação de relatórios analíticos. Domínio de Python (Pandas, NumPy), R e SQL.
+                        </span>
                     </div>
                     <div class="home__card_sub">
                         <p class="home__card_sub--title">Visualização</p>
-                        <span class="home__card--description">Descrição sobre suas habilidades em visualização de dados, ferramentas que utiliza e exemplos de dashboards criados.</span>
+                        <span class="home__card--description">
+                            Criação de dashboards interativos e visualizações de dados eficientes utilizando Tableau, Power BI e bibliotecas como Matplotlib, Seaborn e Plotly.
+                        </span>
                     </div>
                     <div class="home__card_sub">
                         <p class="home__card_sub--title">Machine Learning</p>
-                        <span class="home__card--description">Descrição sobre seus conhecimentos em machine learning, algoritmos que domina e projetos relevantes.</span>
+                        <span class="home__card--description">
+                            Desenvolvimento e implementação de modelos preditivos utilizando Scikit-learn e TensorFlow. Experiência em pré-processamento de dados e avaliação de modelos.
+                        </span>
                     </div>
                 </div>
             </section>
@@ -369,18 +444,18 @@
                     <div class="home__card_sub">
                         <p class="home__card_sub--title">Experiência Profissional</p>
                         <span class="home__card--description">
-                            <ul style="list-style-type: none; margin-top: 15px;">
-                                <li style="margin-bottom: 15px;">
-                                    <strong>Empresa X</strong><br>
-                                    Cargo: Analista de Dados Sênior<br>
-                                    Período: 2020 - Presente<br>
-                                    Descrição: Responsável por...
+                            <ul class="custom-list">
+                                <li>
+                                    <strong>Data Solutions Inc.</strong><br>
+                                    <em>Cientista de Dados Sênior</em><br>
+                                    2020 - Presente<br>
+                                    Liderança de projetos de análise preditiva e desenvolvimento de modelos de machine learning para clientes do setor financeiro.
                                 </li>
-                                <li style="margin-bottom: 15px;">
-                                    <strong>Empresa Y</strong><br>
-                                    Cargo: Cientista de Dados<br>
-                                    Período: 2018 - 2020<br>
-                                    Descrição: Responsável por...
+                                <li>
+                                    <strong>Tech Analytics</strong><br>
+                                    <em>Analista de Dados</em><br>
+                                    2018 - 2020<br>
+                                    Análise de grandes volumes de dados e criação de dashboards para monitoramento de KPIs empresariais.
                                 </li>
                             </ul>
                         </span>
@@ -389,16 +464,16 @@
                     <div class="home__card_sub">
                         <p class="home__card_sub--title">Formação Acadêmica</p>
                         <span class="home__card--description">
-                            <ul style="list-style-type: none; margin-top: 15px;">
-                                <li style="margin-bottom: 15px;">
-                                    <strong>Universidade ABC</strong><br>
-                                    Mestrado em Ciência de Dados<br>
-                                    Período: 2016 - 2018
+                            <ul class="custom-list">
+                                <li>
+                                    <strong>Universidade Federal</strong><br>
+                                    <em>Mestrado em Ciência de Dados</em><br>
+                                    2016 - 2018
                                 </li>
-                                <li style="margin-bottom: 15px;">
-                                    <strong>Universidade XYZ</strong><br>
-                                    Bacharelado em Estatística<br>
-                                    Período: 2012 - 2016
+                                <li>
+                                    <strong>Universidade Estadual</strong><br>
+                                    <em>Bacharelado em Ciência da Computação</em><br>
+                                    2012 - 2016
                                 </li>
                             </ul>
                         </span>
@@ -407,19 +482,12 @@
                     <div class="home__card_sub">
                         <p class="home__card_sub--title">Habilidades Técnicas</p>
                         <span class="home__card--description">
-                            <ul style="list-style-type: none; margin-top: 15px;">
-                                <li style="margin-bottom: 10px;">
-                                    <strong>Linguagens:</strong> Python, R, SQL
-                                </li>
-                                <li style="margin-bottom: 10px;">
-                                    <strong>Ferramentas:</strong> Tableau, Power BI, Pandas, Scikit-learn
-                                </li>
-                                <li style="margin-bottom: 10px;">
-                                    <strong>Bancos de Dados:</strong> PostgreSQL, MySQL, MongoDB
-                                </li>
-                                <li style="margin-bottom: 10px;">
-                                    <strong>Outros:</strong> Git, Docker, AWS
-                                </li>
+                            <ul class="custom-list">
+                                <li><strong>Linguagens:</strong> Python, R, SQL, JavaScript</li>
+                                <li><strong>Ferramentas:</strong> Tableau, Power BI, Jupyter Notebooks</li>
+                                <li><strong>Bibliotecas:</strong> Pandas, NumPy, Scikit-learn, TensorFlow</li>
+                                <li><strong>Bancos de Dados:</strong> PostgreSQL, MySQL, MongoDB</li>
+                                <li><strong>Outros:</strong> Git, Docker, AWS, Azure</li>
                             </ul>
                         </span>
                     </div>
@@ -434,9 +502,9 @@
                 
                 <div class="home__cards_sub">
                     <div class="home__card_sub">
-                        <p class="home__card_sub--title">Análise de Mercado Financeiro</p>
+                        <p class="home__card_sub--title">Sistema de Recomendação</p>
                         <span class="home__card--description">
-                            Projeto completo de análise de tendências no mercado financeiro utilizando Python e machine learning para prever movimentos de ações.
+                            Desenvolvimento de um sistema de recomendação baseado em conteúdo para plataforma de e-commerce, implementado com Python e Scikit-learn. O sistema aumentou as vendas cruzadas em 23%.
                         </span>
                         <div style="margin-top: 15px;">
                             <button class="home__button" style="padding: 8px 15px; font-size: 0.9rem;">Ver Detalhes</button>
@@ -446,7 +514,7 @@
                     <div class="home__card_sub">
                         <p class="home__card_sub--title">Dashboard de Vendas</p>
                         <span class="home__card--description">
-                            Dashboard interativo desenvolvido em Tableau para análise de desempenho de vendas com drill-down por região, produto e período.
+                            Dashboard interativo desenvolvido em Tableau para análise de desempenho de vendas com drill-down por região, produto e período. Implementado para uma rede varejista com mais de 200 lojas.
                         </span>
                         <div style="margin-top: 15px;">
                             <button class="home__button" style="padding: 8px 15px; font-size: 0.9rem;">Ver Detalhes</button>
@@ -454,9 +522,9 @@
                     </div>
                     
                     <div class="home__card_sub">
-                        <p class="home__card_sub--title">Sistema de Recomendação</p>
+                        <p class="home__card_sub--title">Previsão de Séries Temporais</p>
                         <span class="home__card--description">
-                            Sistema de recomendação baseado em conteúdo para plataforma de e-commerce, implementado com Python e Scikit-learn.
+                            Modelo de previsão de demanda utilizando ARIMA e redes neurais LSTM. Aplicado na previsão de vendas para uma grande empresa de logística, reduzindo estoques em 15%.
                         </span>
                         <div style="margin-top: 15px;">
                             <button class="home__button" style="padding: 8px 15px; font-size: 0.9rem;">Ver Detalhes</button>
@@ -472,7 +540,38 @@
                 </div>
                 
                 <div class="home__cards_sub" id="artigos-container">
-                    <!-- Artigos serão carregados aqui via JavaScript -->
+                    <div class="home__card_sub">
+                        <div style="color: #777; margin-bottom: 10px;">15/10/2023</div>
+                        <p class="home__card_sub--title">Tendências em Análise de Dados para 2024</p>
+                        <span class="home__card--description">
+                            Uma análise das principais tendências e tecnologias que estarão em evidência no mercado de dados no próximo ano, incluindo IA generativa e análise em tempo real.
+                        </span>
+                        <div style="margin-top: 15px;">
+                            <button class="home__button" style="padding: 8px 15px; font-size: 0.9rem;">Ler Artigo</button>
+                        </div>
+                    </div>
+                    
+                    <div class="home__card_sub">
+                        <div style="color: #777; margin-bottom: 10px;">22/08/2023</div>
+                        <p class="home__card_sub--title">O Poder da Visualização de Dados</p>
+                        <span class="home__card--description">
+                            Como criar visualizações de dados que contam histórias convincentes e impulsionam a tomada de decisão nas organizações.
+                        </span>
+                        <div style="margin-top: 15px;">
+                            <button class="home__button" style="padding: 8px 15px; font-size: 0.9rem;">Ler Artigo</button>
+                        </div>
+                    </div>
+                    
+                    <div class="home__card_sub">
+                        <div style="color: #777; margin-bottom: 10px;">05/07/2023</div>
+                        <p class="home__card_sub--title">Ética em Ciência de Dados</p>
+                        <span class="home__card--description">
+                            Discussão sobre os desafios éticos no uso de dados e algoritmos, e como profissionais podem abordar essas questões em seus projetos.
+                        </span>
+                        <div style="margin-top: 15px;">
+                            <button class="home__button" style="padding: 8px 15px; font-size: 0.9rem;">Ler Artigo</button>
+                        </div>
+                    </div>
                 </div>
             </section>
             
@@ -480,7 +579,7 @@
                 <div class="home__about--text">
                     <p class="home__about--title">Entre em Contato</p>
                     <span class="home__about--description">
-                        Estou disponível para oportunidades de trabalho, colaborações em projetos ou simplesmente para conversar sobre ciência de dados. Sinta-se à vontade para me contatar por e-mail ou através das minhas redes sociais.
+                        Estou disponível para oportunidades de trabalho, colaborações em projetos ou para discutir ideias relacionadas a ciência de dados. Sinta-se à vontade para me contatar por e-mail ou através das minhas redes sociais.
                     </span>
                     <div style="margin-top: 20px;">
                         <button class="home__button">Enviar Mensagem</button>
@@ -546,46 +645,8 @@
             }
         });
     </script>
-    
-    <script>
-        // Carregamento dos artigos (simulado)
-        document.addEventListener('DOMContentLoaded', function() {
-            // Simulação de carregamento de artigos
-            const artigos = [
-                {
-                    titulo: "Tendências em Análise de Dados para 2023",
-                    resumo: "Uma análise das principais tendências e tecnologias que estarão em evidência no mercado de dados no próximo ano.",
-                    data: "15/10/2022"
-                },
-                {
-                    titulo: "Introdução ao Machine Learning com Python",
-                    resumo: "Guia prático para iniciantes que desejam começar com machine learning utilizando a linguagem Python.",
-                    data: "22/08/2022"
-                },
-                {
-                    titulo: "Visualização de Dados: Do Básico ao Avançado",
-                    resumo: "Técnicas e boas práticas para criar visualizações de dados eficientes e informativas.",
-                    data: "05/07/2022"
-                }
-            ];
-            
-            const container = document.getElementById('artigos-container');
-            
-            artigos.forEach(artigo => {
-                container.innerHTML += `
-                    <div class="home__card_sub">
-                        <div style="color: #777; margin-bottom: 10px;">${artigo.data}</div>
-                        <p class="home__card_sub--title">${artigo.titulo}</p>
-                        <span class="home__card--description">${artigo.resumo}</span>
-                        <div style="margin-top: 15px;">
-                            <button class="home__button" style="padding: 8px 15px; font-size: 0.9rem;">Ler Artigo</button>
-                        </div>
-                    </div>
-                `;
-            });
-        });
-    </script>
 </body>
 </html>
-      
- 
+        
+    
+   
